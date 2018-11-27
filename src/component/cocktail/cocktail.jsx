@@ -1,5 +1,6 @@
-import React, { Component} from 'react';
-import axios from 'axios';
+import React, { Component} from 'react'
+import AddCocktail from './add-cocktail'
+import axios from 'axios'
 
 const BASE_URL = 'http://localhost:3456/'
 
@@ -26,7 +27,12 @@ class Cocktail extends Component{
 
   render(){
     return (
-      <p>{this.state.cocktail.length}</p>
+      // <p>{this.state.cocktail.length}</p>
+        [
+        <div>{this.state.cocktail.map(cocktail => <p>{cocktail.name}</p>
+        )}</div>,
+        <AddCocktail />
+        ]
     )
   }
 }
