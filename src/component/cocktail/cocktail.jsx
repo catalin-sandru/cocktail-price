@@ -24,19 +24,28 @@ class Cocktail extends Component{
     console.log(`this test should result in ${something}`)
     this.setState({
       cocktail: [...this.state.cocktail, {
-        name: something
+        name: something,
+        id: this.state.cocktail.length
       }]
     })
   }
 
+  renderCocktail = () => {
+    return this
+      .state
+      .cocktail
+      .map((cocktail, key) =>
+        <p key={key}>{cocktail.name}</p>
+      )
+  }
+
   render(){
     return (
-      // <p>{this.state.cocktail.length}</p>
-        [
-        <div>{this.state.cocktail.map(cocktail => <p>{cocktail.name}</p>
-        )}</div>,
-        <AddCocktail orice={this.addCocktailToState} />
-        ]
+      <div>
+        <div>{this.renderCocktail()}</div>,
+        <AddCocktail orice=
+        {this.addCocktailToState} />
+      </div>
     )
   }
 }
