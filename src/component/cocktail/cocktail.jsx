@@ -1,8 +1,8 @@
 import React, { Component} from 'react'
 import AddCocktail from './add-cocktail'
+import { BASE_URL } from './constant'
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:3456/'
 
 class Cocktail extends Component{
 
@@ -17,12 +17,16 @@ class Cocktail extends Component{
     }
 
   componentDidMount(){
-    // axios
-    //   .get(`${BASE_URL}cocktail`)
-    //   .then(({data}) => {
-    //     this.setState({cocktail: data})
-    //   })
     this.getCocktail();
+  }
+
+  addCocktailToState = (something) => {
+    console.log(`this test should result in ${something}`)
+    this.setState({
+      cocktail: [...this.state.cocktail, {
+        name: something
+      }]
+    })
   }
 
   render(){
@@ -31,7 +35,7 @@ class Cocktail extends Component{
         [
         <div>{this.state.cocktail.map(cocktail => <p>{cocktail.name}</p>
         )}</div>,
-        <AddCocktail />
+        <AddCocktail orice={this.addCocktailToState} />
         ]
     )
   }
