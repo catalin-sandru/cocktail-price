@@ -48,9 +48,15 @@ class Cocktail extends Component{
 
   async deleteCocktail(id) {
     console.log(id)
-    await axios.delete(`${BASE_URL}cocktail`, {
-      id: this.id
+    await axios.delete(`${BASE_URL}cocktail/${id}`, {
+      'Content-Type': 'aplication/json',
+      method: 'DELETE'
     })
+    // await axios.delete(`${BASE_URL}cocktail`, {
+    //   id
+    // }, {
+    //   'Content-type': 'aplication/json'
+    // })
   }
 
   render(){
