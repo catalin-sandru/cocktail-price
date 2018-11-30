@@ -22,6 +22,8 @@ class AddCocktail extends Component {
           }
         )
       this.props.orice(this.input.value);
+      this.input.value = '';
+      this.input.focus();
     } catch(e) {
     }
   }
