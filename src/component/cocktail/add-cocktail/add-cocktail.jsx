@@ -28,17 +28,26 @@ class AddCocktail extends Component {
     }
   }
 
+  handleEnter = (event) => {
+    // console.log(input.keyCode)
+    if(event.keyCode === 13) {
+      this.pushCocktail();
+    }
+  }
+
   render() {
     return(
       <p>
         <input
-          ref={e => this.input = e} />
+          ref={e => this.input = e}
+          onKeyDown={this.handleEnter}
+          />
         <button
           onClick = {this.pushCocktail}>
         click </button> 
       </p>
     )
   }
-}
+};
 
 export default AddCocktail;
