@@ -31,6 +31,7 @@ class Cocktail extends Component{
     })
   }
 
+
   renderCocktail = () => {
     return this
       .state
@@ -47,10 +48,17 @@ class Cocktail extends Component{
   }
 
   async deleteCocktail(id) {
-    console.log(id)
+    console.log(`cocktail with id "${id}" has been deleted`)
     await axios.delete(`${BASE_URL}cocktail/${id}`, {
       'Content-Type': 'aplication/json',
       method: 'DELETE'
+    }).then(result => {
+        console.log(result)
+        // remove the cocktail from state
+        this.setState({
+          cocktail: this.state.cocktail
+            .filter(cocktail => cocktail.id !== id)
+        })
     })
     // await axios.delete(`${BASE_URL}cocktail`, {
     //   id
@@ -63,8 +71,9 @@ class Cocktail extends Component{
     return (
       <div>
         <div>{this.renderCocktail()}</div>,
-        <AddCocktail orice=
-        {this.addCocktailToState} />
+        <AddCocktail 
+          orice={this.addCocktailToState}
+           />
       </div>
     )
   }
