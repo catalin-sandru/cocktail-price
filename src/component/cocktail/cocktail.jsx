@@ -8,7 +8,8 @@ import './cocktail.css'
 class Cocktail extends Component{
 
   state = {
-    cocktail: []
+    cocktail: [],
+    current: null
   }
 
   async getCocktail() {
@@ -38,11 +39,25 @@ class Cocktail extends Component{
       .cocktail
       .map((cocktail, key) =>
         <p key={key} className='cocktail__item'>
-          <span>{cocktail.name}</span>
-          <span 
+          <span>
+            {
+              this.state.current !== cocktail.id && 
+              <span>{cocktail.name}</span>
+            }
+            {
+              this.state.current === cocktail.id &&
+            <input 
+              type="text" 
+              defaultValue={cocktail.name} 
+              autoFocus/>}
+          </span>
+          <button 
             onClick={() => this.deleteCocktail(cocktail.id)}>
             &times;
-          </span>
+          </button>
+          <button onClick={() => this.setCurrentCocktail(cocktail.id)}>
+            Edit
+          </button>
         </p>
       )
   }
@@ -65,6 +80,13 @@ class Cocktail extends Component{
     // }, {
     //   'Content-type': 'aplication/json'
     // })
+  }
+
+  setCurrentCocktail(id) {
+    console.log(id)
+    this.setState({
+      current: id
+    })
   }
 
   render(){

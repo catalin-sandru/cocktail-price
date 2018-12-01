@@ -4,7 +4,17 @@
   padding: 0 1rem;  
 }
 
-.cocktail__item>:nth-child(2) {
+.cocktail__item>span:nth-child(1) {
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  flex-grow: 1;
+}
+
+.cocktail__item>button:nth-child(2),
+.cocktail__item>button:nth-child(3) {
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: -1px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
