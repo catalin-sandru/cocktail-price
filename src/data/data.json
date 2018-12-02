@@ -9,8 +9,10 @@
       "id": 8
     },
     {
-      "name": "ndsiniw",
-      "id": 9
+      "Content-Type": "aplication/json",
+      "id": 9,
+      "name": "ndsiniw1212",
+      "method": "PUT"
     },
     {
       "name": "dsadas",
@@ -19,6 +21,11 @@
     {
       "name": "dgya",
       "id": 11
+    },
+    {
+      "Content-Type": "aplication/json",
+      "method": "PUT",
+      "id": 12
     }
   ]
 }
