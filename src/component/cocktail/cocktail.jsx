@@ -15,7 +15,6 @@ class Cocktail extends Component{
   async getCocktail() {
     let {data} = await axios.get(`${BASE_URL}cocktail`)
     this.setState({cocktail: data})
-    // console.log(data)
     }
 
   componentDidMount(){
@@ -23,7 +22,6 @@ class Cocktail extends Component{
   }
 
   addCocktailToState = (something) => {
-    console.log(`this test should result in ${something}`)
     this.setState({
       cocktail: [...this.state.cocktail, {
         name: something,
@@ -34,14 +32,12 @@ class Cocktail extends Component{
 
   handleEditCocktail = (event) => {
     const { keyCode: key } = event;
-    // console.log(`key presed is ${event.keyCode}`)
     // if esc is pressed (27)
     if(key === 27){
       this.setState({
         current: null
       })
     } else if (key === 13) {
-      console.log(event.target.value)
       this.saveCocktail({
         id: this.state.current,
         name: event.target.value
@@ -82,12 +78,10 @@ class Cocktail extends Component{
   }
 
   async deleteCocktail(id) {
-    console.log(`cocktail with id "${id}" has been deleted`)
     await axios.delete(`${BASE_URL}cocktail/${id}`, {
       'Content-Type': 'aplication/json',
       method: 'DELETE'
     }).then(result => {
-        console.log(result)
         // remove the cocktail from state
         this.setState({
           cocktail: this.state.cocktail
@@ -101,13 +95,11 @@ class Cocktail extends Component{
     // })
   }
   async saveCocktail(cocktailObject) {
-    console.log(`cocktail with id "${cocktailObject.id}" has been saved`)
     await axios.put(`${BASE_URL}cocktail/${cocktailObject.id}`, {
       'Content-Type': 'aplication/json',
       ...cocktailObject,
       method: 'PUT'
     }).then(result => {
-        console.log(result)
         // remove the cocktail from state
         this.setState({
           cocktail: this.state.cocktail
@@ -117,10 +109,12 @@ class Cocktail extends Component{
             )
         })
     })
+    this.setState({
+      current: null
+    })
   }
 
   setCurrentCocktail(id) {
-    console.log(id)
     this.setState({
       current: id
     })

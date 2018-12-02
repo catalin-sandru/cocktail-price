@@ -15,8 +15,10 @@
       "method": "PUT"
     },
     {
-      "name": "dsadas",
-      "id": 10
+      "Content-Type": "aplication/json",
+      "id": 10,
+      "name": "dsadas123",
+      "method": "PUT"
     },
     {
       "name": "dgya",
@@ -26,6 +28,16 @@
       "Content-Type": "aplication/json",
       "method": "PUT",
       "id": 12
+    }
+  ],
+  "ingredient": [
+    {
+      "id": 1,
+      "name": "Papa Diablo",
+      "unit": "ml",
+      "price": 56,
+      "currency": "£",
+      "quantity": 700
     }
   ]
 }
