@@ -23,18 +23,13 @@
     {
       "name": "dgya",
       "id": 11
-    },
-    {
-      "Content-Type": "aplication/json",
-      "method": "PUT",
-      "id": 12
     }
   ],
   "ingredient": [
     {
       "id": 1,
       "name": "Papa Diablo",
-      "unit": "ml",
+      "measure": "ml",
       "price": 56,
       "currency": "£",
       "quantity": 700
@@ -42,7 +37,7 @@
     {
       "id": 2,
       "name": "Papa Diablo",
-      "unit": "ml",
+      "measure": "ml",
       "price": 56,
       "currency": "£",
       "quantity": 700
@@ -50,7 +45,7 @@
     {
       "id": 3,
       "name": "Papa Diablo",
-      "unit": "ml",
+      "measure": "ml",
       "price": 56,
       "currency": "£",
       "quantity": 700
@@ -58,7 +53,7 @@
     {
       "id": 4,
       "name": "Papa Diablo",
-      "unit": "ml",
+      "measure": "ml",
       "price": 56,
       "currency": "£",
       "quantity": 700
@@ -66,7 +61,7 @@
     {
       "id": 5,
       "name": "Papa Diablo",
-      "unit": "ml",
+      "measure": "ml",
       "price": 56,
       "currency": "£",
       "quantity": 700

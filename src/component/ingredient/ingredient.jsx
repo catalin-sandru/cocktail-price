@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BASE_URL } from './constant';
-import './ingredient.css'
+import AddIngredient from './add-ingredient';
+import './ingredient.css';
 
 class Ingredient extends Component {
   state = {
@@ -18,11 +19,11 @@ class Ingredient extends Component {
 
   renderIngredientList = () => {
     return this.state.ingredient
-      .map(({id, name, unit, price, currency, quantity}, key) =>
+      .map(({id, name, measure, price, currency, quantity}, key) =>
         <tr key={key}>
           <td>{id}</td>
           <td>{name}</td>
-          <td>{unit}</td>
+          <td>{measure}</td>
           <td>{price}{currency}</td>
           <td>{quantity}</td>
           <td>act</td>
@@ -31,12 +32,12 @@ class Ingredient extends Component {
 
   render() {
     return (
-      <table className="ingredient__full-table">
+      [<table className="ingredient__full-table">
         <thead>
           <tr>
             <td>Id</td>
             <td>Name</td>
-            <td>Unit</td>
+            <td>Measure</td>
             <td>Price</td>
             <td>Currency</td>
             <td>Quantity</td>
@@ -46,7 +47,8 @@ class Ingredient extends Component {
         <tbody>
           {this.renderIngredientList()}
         </tbody>
-      </table>
+      </table>,
+      <AddIngredient />]
     )
   }
 }
